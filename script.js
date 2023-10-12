@@ -3,21 +3,25 @@ const play = document.getElementById("play");
 const pause = document.getElementById("watch");
 const reset = document.getElementById("reset");
 
-const seconds = 0;
-const minutes = 0;
-const hours = 0;
+let seconds = 10;
+let minutes = 1;
+let hours = 1;
+
+let evenSeconds = 0;
+let evenMinutes= 0;
+let evenHours = 0;
 
 function countDown () {
-    seconds--;
-    if (seconds / 60 === 1){
-        seconds = 0;
-        minutes--;
-        if (minutes <= 60) {
-            minutes= 0;
-            hours--;
-        }
-    }  
-    
+        seconds--;
+        if (seconds === 1) {
+            seconds = 60;
+            minutes--;
+            if (minutes === 1) {
+                minutes = 60;
+                hours--;
+            }
+        }  
+
     if (seconds < 10) {
         evenSeconds = '0' + seconds.toString();
     } else {
@@ -33,8 +37,11 @@ function countDown () {
     } else {
         evenHours = hours;
     }    
+    
 
-    timer.innerText = evenHours + ':' + evenMinutes + ':' + evenSeconds;
+    watch.innerText = evenHours + ':' + evenMinutes + ':' + evenSeconds;
 }
 
 
+
+    window.setInterval(countDown, 1000);

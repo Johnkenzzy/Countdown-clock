@@ -48,10 +48,13 @@
 .set {
     padding: 15px;
     border: 2px solid #4da24d;
+    border-radius: 5px;
     margin: 5px;
+    background: #a7a78c;
+    
 }
 
 .icon  {
     font-size: 3ch;
-    color: #130ce0;
+    color: #e00c68;
 }
