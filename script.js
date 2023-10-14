@@ -5,7 +5,7 @@ const reset = document.getElementById("reset");
 
 let seconds = 10;
 let minutes = 1;
-let hours = 1;
+let hours = 0;
 
 let evenSeconds = 0;
 let evenMinutes= 0;
@@ -13,14 +13,24 @@ let evenHours = 0;
 
 function countDown () {
         seconds--;
-        if (seconds === 1) {
-            seconds = 60;
+        
+        if (seconds === 0) {
             minutes--;
-            if (minutes === 1) {
-                minutes = 60;
-                hours--;
-            }
-        }  
+            seconds = 60;
+            if (minutes === 0) {
+                if (hours === 0) {
+                    hours = 0;
+                    if (minutes === 0) {
+                        minutes = 0;
+                     } else {minutes--;}
+                     if (seconds === 0) {
+                        seconds = 0;
+                     } else {seconds--;}  
+                 } else {hours--; minutes = 60;}
+                
+            } 
+        }
+
 
     if (seconds < 10) {
         evenSeconds = '0' + seconds.toString();
@@ -45,3 +55,13 @@ function countDown () {
 
 
     window.setInterval(countDown, 1000);
+
+    /*if (hours >= 0) {
+        hours--
+    }else {hours = 0}
+    if (min >= 0) {
+        minutes--
+    }else {minutes--}
+    if (seconds >= 0) {
+        seconds--
+    }else {seconds = 0}*/
