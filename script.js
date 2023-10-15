@@ -12,24 +12,25 @@ let evenMinutes= 0;
 let evenHours = 0;
 
 function countDown () {
-        seconds--;
-        
-        if (seconds === 0) {
-            minutes--;
-            seconds = 60;
-            if (minutes === 0) {
-                if (hours === 0) {
-                    hours = 0;
-                    if (minutes === 0) {
-                        minutes = 0;
-                     } else {minutes--;}
-                     if (seconds === 0) {
-                        seconds = 0;
-                     } else {seconds--;}  
-                 } else {hours--; minutes = 60;}
-                
-            } 
+    seconds--;
+    if (seconds < 0) {
+        minutes--;
+        seconds = 59;
+        if (minutes < 0) {
+            hours--;
+            minutes = 59;
+        } 
+    }
+    if (hours <= 0) {
+        hours = 0;
+        if (minutes <= 0) {
+            minutes = 0;
         }
+        if (seconds <= 0) {
+            seconds = 0;
+        }
+    }
+
 
 
     if (seconds < 10) {
