@@ -11,6 +11,8 @@ let evenSeconds = 0;
 let evenMinutes= 0;
 let evenHours = 0;
          
+let countInterval = null;
+let countStatus = 'stopped';
 
 function countDown () {
     if (seconds >= 0) {
@@ -55,20 +57,22 @@ function countDown () {
 
     play.addEventListener('click', ()=>{
         window.setInterval(countDown, 1000);
-        
+
     })
 
     pause.addEventListener('click', ()=>{
-        const counter = window.setInterval(countDown, 1000);
-        window.clearInterval(counter);
-
+        if (countStatus === "started"){
+            window.clearInterval(countInterval);
+            countStatus = "stopped";
+       }
+       
     })
 
     reset.addEventListener('click', ()=>{
 
     const counter = window.setInterval(countDown, 1000);
 
-    window.clearInterval(counter);
+    window.clearInterval(countInterval);
     seconds = 0;
     minutes = 0;
     hours = 0;
