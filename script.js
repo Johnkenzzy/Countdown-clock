@@ -5,33 +5,32 @@ const reset = document.getElementById("reset");
 
 let seconds = 10;
 let minutes = 1;
-let hours = 0;
+let hours = 1;
 
 let evenSeconds = 0;
 let evenMinutes= 0;
 let evenHours = 0;
+         
 
 function countDown () {
-    seconds--;
+    if (seconds >= 0) {
+        seconds--;
+        if (hours <= 0 && minutes <= 0 && seconds <= 0) {
+            seconds = 0;
+        }
+    }
+
     if (seconds < 0) {
         minutes--;
         seconds = 59;
         if (minutes < 0) {
             hours--;
             minutes = 59;
-        } 
-    }
-    if (hours <= 0) {
-        hours = 0;
-        if (minutes <= 0) {
-            minutes = 0;
         }
-        if (seconds <= 0) {
-            seconds = 0;
-        }
-    }
-
-
+        if (hours <= 0) {
+            hours = 0;
+        }    
+    } 
 
     if (seconds < 10) {
         evenSeconds = '0' + seconds.toString();
@@ -54,15 +53,26 @@ function countDown () {
 }
 
 
+    play.addEventListener('click', ()=>{
+        window.setInterval(countDown, 1000);
+        
+    })
 
-    window.setInterval(countDown, 1000);
+    pause.addEventListener('click', ()=>{
+        const counter = window.setInterval(countDown, 1000);
+        window.clearInterval(counter);
 
-    /*if (hours >= 0) {
-        hours--
-    }else {hours = 0}
-    if (min >= 0) {
-        minutes--
-    }else {minutes--}
-    if (seconds >= 0) {
-        seconds--
-    }else {seconds = 0}*/
+    })
+
+    reset.addEventListener('click', ()=>{
+
+    const counter = window.setInterval(countDown, 1000);
+
+    window.clearInterval(counter);
+    seconds = 0;
+    minutes = 0;
+    hours = 0;
+
+    watch.innerHTML = '00:00:00';
+        
+    })
