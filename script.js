@@ -11,8 +11,8 @@ let evenSeconds = 0;
 let evenMinutes= 0;
 let evenHours = 0;
          
-let countInterval = null;
-let countStatus = 'stopped';
+let timerInterval = null;
+let timerStatus = 'stopped';
 
 function countDown () {
     if (seconds >= 0) {
@@ -50,22 +50,27 @@ function countDown () {
         evenHours = hours;
     }    
     
-
     watch.innerText = evenHours + ':' + evenMinutes + ':' + evenSeconds;
 }
 
 
-    play.addEventListener('click', ()=>{
-        window.setInterval(countDown, 1000);
 
-    })
+    
+        play.addEventListener('click', ()=>{
+            window.setInterval(countDown, 1000);
+    
+        })
 
-    pause.addEventListener('click', ()=>{
-        if (countStatus === "started"){
-            window.clearInterval(countInterval);
-            countStatus = "stopped";
-       }
-       
+
+    pause.addEventListener('click', () => {
+        if(timerStatus === 'stopped') {
+            timerInterval = window.setInterval(countDown, 1000);
+            window.clearInterval(timerInterval);
+            // play.innerHTML = `<i class="fa-solid fa-play" id='play'></i>`;
+            // play.style.background='green';
+            timerStatus = 'stopped';
+        }    
+        //return timerStatus;
     })
 
     reset.addEventListener('click', ()=>{
