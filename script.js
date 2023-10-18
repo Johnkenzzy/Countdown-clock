@@ -57,20 +57,36 @@ function countDown () {
 
     
         play.addEventListener('click', ()=>{
-            window.setInterval(countDown, 1000);
-    
+
+            if (timerStatus === 'stopped') {
+                timerInterval = window.setInterval(countDown, 1000);
+                window.clearInterval(timerInterval);
+                timerStatus = 'started';
+            }
         })
+
+        /*play.addEventListener('click', function(){
+
+
+            if(timerStatus === 'stopped') {
+                timerInterval = window.setInterval(countDown, 1000);
+                play.innerHTML = `<i class="fa-solid fa-pause" id='pause'></i>`;
+                timerStatus = 'started';
+            } else {
+                window.clearInterval(timerInterval);
+                play.innerHTML = `<i class="fa-solid fa-play" id='play'></i>`;
+                timerStatus = 'stopped';
+            }    
+            //return timerStatus;
+        })*/
 
 
     pause.addEventListener('click', () => {
-        if(timerStatus === 'stopped') {
+        if(timerStatus !== 'stopped') {
             timerInterval = window.setInterval(countDown, 1000);
             window.clearInterval(timerInterval);
-            // play.innerHTML = `<i class="fa-solid fa-play" id='play'></i>`;
-            // play.style.background='green';
             timerStatus = 'stopped';
         }    
-        //return timerStatus;
     })
 
     reset.addEventListener('click', ()=>{
