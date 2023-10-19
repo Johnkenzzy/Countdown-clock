@@ -62,7 +62,7 @@ function countDown () {
                 timerInterval = window.setInterval(countDown, 1000);
                 window.clearInterval(timerInterval);
                 timerStatus = 'started';
-            }
+            } else window.clearInterval(timerInterval);
         })
 
         /*play.addEventListener('click', function(){
