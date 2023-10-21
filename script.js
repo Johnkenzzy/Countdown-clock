@@ -11,8 +11,8 @@ let evenSeconds = 0;
 let evenMinutes= 0;
 let evenHours = 0;
          
-let timerInterval = null;
-let timerStatus = 'stopped';
+let timerPlay = null;
+let timerPause = 'stopped';
 
 function countDown () {
     if (seconds >= 0) {
@@ -58,11 +58,11 @@ function countDown () {
     
         play.addEventListener('click', ()=>{
 
-            if (timerStatus === 'stopped') {
-                timerInterval = window.setInterval(countDown, 1000);
-                window.clearInterval(timerInterval);
-                timerStatus = 'started';
-            } else window.clearInterval(timerInterval);
+            if (timerPlay == pause) {
+                timerPause = window.setInterval(countDown, 1000);
+                window.clearInterval(timerPause);
+                timerPlay = 'started';
+            } else {  }
         })
 
         /*play.addEventListener('click', function(){
@@ -82,11 +82,11 @@ function countDown () {
 
 
     pause.addEventListener('click', () => {
-        if(timerStatus !== 'stopped') {
-            timerInterval = window.setInterval(countDown, 1000);
-            window.clearInterval(timerInterval);
-            timerStatus = 'stopped';
-        }    
+        if(timerPause === play) {
+            timerPlay = window.setInterval(countDown, 1000);
+            window.clearInterval(timerPlay);
+            timerPause = 'stopped';
+        } else { play }
     })
 
     reset.addEventListener('click', ()=>{
