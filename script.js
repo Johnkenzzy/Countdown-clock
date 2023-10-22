@@ -2,6 +2,10 @@ const watch = document.getElementById("watch");
 const play = document.getElementById("play");
 const pause = document.getElementById("watch");
 const reset = document.getElementById("reset");
+const up = document.querySelector(".up");
+const down = document.querySelector(".down");
+const left = document.querySelector(".left");
+const right = document.querySelector(".right");
 
 let seconds = 10;
 let minutes = 1;
@@ -11,8 +15,8 @@ let evenSeconds = 0;
 let evenMinutes= 0;
 let evenHours = 0;
          
-let timerPlay = null;
-let timerPause = 'stopped';
+let timerInterval = null;
+let timerStatus = 'stopped';
 
 function countDown () {
     if (seconds >= 0) {
@@ -53,51 +57,62 @@ function countDown () {
     watch.innerText = evenHours + ':' + evenMinutes + ':' + evenSeconds;
 }
 
-
-
     
-        play.addEventListener('click', ()=>{
+    play.addEventListener('click', ()=>{
+        if(timerStatus === 'stopped') {
+            timerInterval = window.setInterval(countDown, 1000);
+            timerStatus = 'started';
+        } else {
+            window.clearInterval(timerInterval);
+            timerStatus = 'stopped'
+        }
+    })
 
-            if (timerPlay == pause) {
-                timerPause = window.setInterval(countDown, 1000);
-                window.clearInterval(timerPause);
-                timerPlay = 'started';
-            } else {  }
-        })
-
-        /*play.addEventListener('click', function(){
+    /*play.addEventListener('click', function(){
 
 
-            if(timerStatus === 'stopped') {
-                timerInterval = window.setInterval(countDown, 1000);
-                play.innerHTML = `<i class="fa-solid fa-pause" id='pause'></i>`;
-                timerStatus = 'started';
-            } else {
-                window.clearInterval(timerInterval);
-                play.innerHTML = `<i class="fa-solid fa-play" id='play'></i>`;
-                timerStatus = 'stopped';
-            }    
-            //return timerStatus;
-        })*/
+        if(timerStatus === 'stopped') {
+            timerInterval = window.setInterval(countDown, 1000);
+            play.innerHTML = `<i class="fa-solid fa-pause" id='pause'></i>`;
+            timerStatus = 'started';
+        } else {
+            window.clearInterval(timerInterval);
+            play.innerHTML = `<i class="fa-solid fa-play" id='play'></i>`;
+            timerStatus = 'stopped';
+        }    
+        //return timerStatus;
+    })*/
 
 
     pause.addEventListener('click', () => {
-        if(timerPause === play) {
-            timerPlay = window.setInterval(countDown, 1000);
-            window.clearInterval(timerPlay);
-            timerPause = 'stopped';
-        } else { play }
+        if(timerStatus === 'started') {
+            window.clearInterval(timerInterval);
+            timerStatus = 'stopped';
+        } else {
+            timerInterval = window.setInterval(countDown, 1000);
+            timerStatus = 'started'
+        }
     })
 
     reset.addEventListener('click', ()=>{
 
-    const counter = window.setInterval(countDown, 1000);
+        const timerStatus = window.setInterval(countDown, 1000);
 
-    window.clearInterval(countInterval);
-    seconds = 0;
-    minutes = 0;
-    hours = 0;
+        window.clearInterval(timerInterval);
+        seconds = 0;
+        minutes = 0;
+        hours = 0;
 
-    watch.innerHTML = '00:00:00';
+        watch.innerText = '00:00:00';
         
     })
+
+    up.addEventListener("click", ()=>{
+        return +1
+    })
+
+    down.addEventListener("click", ()=>{
+        return -1
+    })
+
+    left.addEventListener("click", )
