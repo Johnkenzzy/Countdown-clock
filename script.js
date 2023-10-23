@@ -1,6 +1,6 @@
 const watch = document.getElementById("watch");
 const play = document.getElementById("play");
-const pause = document.getElementById("watch");
+const pause = document.getElementById("pause");
 const reset = document.getElementById("reset");
 const up = document.querySelector(".up");
 const down = document.querySelector(".down");
@@ -54,44 +54,22 @@ function countDown () {
         evenHours = hours;
     }    
     
-    watch.innerText = evenHours + ':' + evenMinutes + ':' + evenSeconds;
+    watch.innerHTML = evenHours + ':' + evenMinutes + ':' + evenSeconds;
 }
 
-    
     play.addEventListener('click', ()=>{
         if(timerStatus === 'stopped') {
             timerInterval = window.setInterval(countDown, 1000);
             timerStatus = 'started';
-        } else {
-            window.clearInterval(timerInterval);
-            timerStatus = 'stopped'
         }
     })
 
-    /*play.addEventListener('click', function(){
 
-
-        if(timerStatus === 'stopped') {
-            timerInterval = window.setInterval(countDown, 1000);
-            play.innerHTML = `<i class="fa-solid fa-pause" id='pause'></i>`;
-            timerStatus = 'started';
-        } else {
-            window.clearInterval(timerInterval);
-            play.innerHTML = `<i class="fa-solid fa-play" id='play'></i>`;
-            timerStatus = 'stopped';
-        }    
-        //return timerStatus;
-    })*/
-
-
-    pause.addEventListener('click', () => {
+    pause.addEventListener('click', ()=> {
         if(timerStatus === 'started') {
             window.clearInterval(timerInterval);
             timerStatus = 'stopped';
-        } else {
-            timerInterval = window.setInterval(countDown, 1000);
-            timerStatus = 'started'
-        }
+        } 
     })
 
     reset.addEventListener('click', ()=>{
@@ -103,9 +81,41 @@ function countDown () {
         minutes = 0;
         hours = 0;
 
-        watch.innerText = '00:00:00';
+        watch.innerHTML = '00:00:00';
+        timerStatus = 'stopped';
         
     })
+
+    const textContent = watch.textContent;
+    const words = textContent.split(':');
+    let cursorPosition = element.cursorPosition;
+
+    function moveToPreviousWord() {
+        if (cursorPosition > 0) {
+          cursorPosition--;
+        }
+      }
+      
+      // Update the element's text content.
+      function updateElementTextContent() {
+        element.textContent = words.join(' ');
+      }
+      
+      // Bind the moveToNextWord() and moveToPreviousWord() functions to the element's keydown event.
+      element.addEventListener('keydown', (event) => {
+        switch (event.key) {
+          case 'ArrowRight':
+            moveToNextWord();
+            break;
+          case 'ArrowLeft':
+            moveToPreviousWord();
+            break;
+        }
+      
+        // Update the element's text content.
+        updateElementTextContent();
+      });
+
 
     up.addEventListener("click", ()=>{
         return +1
