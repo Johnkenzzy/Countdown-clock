@@ -64,7 +64,6 @@ function countDown () {
         }
     })
 
-
     pause.addEventListener('click', ()=> {
         if(timerStatus === 'started') {
             window.clearInterval(timerInterval);
@@ -74,21 +73,17 @@ function countDown () {
 
     reset.addEventListener('click', ()=>{
 
-        const timerStatus = window.setInterval(countDown, 1000);
-
         window.clearInterval(timerInterval);
+        watch.innerHTML = '00:00:00';
         seconds = 0;
         minutes = 0;
         hours = 0;
-
-        watch.innerHTML = '00:00:00';
         timerStatus = 'stopped';
-        
-    })
+    });
 
     const textContent = watch.textContent;
     const words = textContent.split(':');
-    let cursorPosition = element.cursorPosition;
+    let cursorPosition = right.cursorPosition;
 
     function moveToPreviousWord() {
         if (cursorPosition > 0) {
@@ -96,13 +91,12 @@ function countDown () {
         }
       }
       
-      // Update the element's text content.
       function updateElementTextContent() {
-        element.textContent = words.join(' ');
+        right.textContent = words.join(' ');
       }
       
       // Bind the moveToNextWord() and moveToPreviousWord() functions to the element's keydown event.
-      element.addEventListener('keydown', (event) => {
+      right.addEventListener('keydown', (event) => {
         switch (event.key) {
           case 'ArrowRight':
             moveToNextWord();
@@ -125,4 +119,4 @@ function countDown () {
         return -1
     })
 
-    left.addEventListener("click", )
+    left.addEventListener("click", ()=>{})
