@@ -81,9 +81,16 @@ function countDown () {
         timerStatus = 'stopped';
     });
 
-    const textContent = watch.textContent;
-    const words = textContent.split(':');
-    let cursorPosition = right.cursorPosition;
+   
+    function moveTimer () {
+        const string = watch.textContent;
+        let watchArr = [];
+        watchArr.push(string);
+
+    }
+
+    // const words = textContent.split(':');
+    // let cursorPosition = right.cursorPosition;
 
     function moveToPreviousWord() {
         if (cursorPosition > 0) {
