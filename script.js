@@ -81,11 +81,24 @@ function countDown () {
         timerStatus = 'stopped';
     });
 
+    const string = watch.textContent;
+    watchArr = string.split(':');
+    const sec = watchArr[2];
+    const min = watchArr[1];
+    const hour = watchArr[0];
+    const timer = sec;
+    const position = null;
+    const ck = createElement(p);
+    i.textContent = sec;
+    i.style.background = 'red'
+
+
+
    
     function moveTimer () {
-        const string = watch.textContent;
-        let watchArr = [];
-        watchArr.push(string);
+      if (timer == sec) {
+        sec.background = '#f1e1c3'
+      }
 
     }
 
