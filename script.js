@@ -86,18 +86,25 @@ function countDown () {
     const sec = watchArr[2];
     const min = watchArr[1];
     const hour = watchArr[0];
-    const timer = sec;
-    const position = null;
-    const ck = createElement(p);
-    i.textContent = sec;
-    i.style.background = 'red'
+    let timer = sec;
+    let position = null;
+    
 
 
 
    
     function moveTimer () {
-      if (timer == sec) {
-        sec.background = '#f1e1c3'
+      if (timer === sec) {
+        seconds + 5;
+        timer = min;
+      }
+      if (timer === min) {
+        minutes + 5;
+        timer = hour;
+      }
+      if (timer === hour) {
+        hours + 1;
+        timer = sec;
       }
 
     }
@@ -139,4 +146,7 @@ function countDown () {
         return -1
     })
 
-    left.addEventListener("click", ()=>{})
+    left.addEventListener("click", moveTimer)
+    console.log(sec)
+    console.log(minutes)
+    console.log(hours)
