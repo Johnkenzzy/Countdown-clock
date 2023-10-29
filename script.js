@@ -109,6 +109,10 @@ function countDown () {
 
     }
 
+    if (cursorPosition > 0) {
+          cursorPosition--;
+        }
+
     // const words = textContent.split(':');
     // let cursorPosition = right.cursorPosition;
 
