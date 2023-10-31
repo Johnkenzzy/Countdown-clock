@@ -113,8 +113,8 @@ function countDown () {
           cursorPosition--;
         }
 
-    // const words = textContent.split(':');
-    // let cursorPosition = right.cursorPosition;
+    const words = textContent.split(':');
+    let cursorPosition = right.cursorPosition;
 
     function moveToPreviousWord() {
         if (cursorPosition > 0) {
