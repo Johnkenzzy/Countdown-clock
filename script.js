@@ -7,13 +7,23 @@ const down = document.querySelector(".down");
 const left = document.querySelector(".left");
 const right = document.querySelector(".right");
 
-let seconds = 10;
-let minutes = 1;
-let hours = 1;
+
+let seconds = 0;
+let minutes = 0;
+let hours = 0;
 
 let evenSeconds = 0;
 let evenMinutes= 0;
 let evenHours = 0;
+
+watch.innerHTML = hours + ':' + minutes + ':' + seconds;
+
+
+const string = watch.textContent;
+watchArr = string.split(':');
+watchArr[2] = seconds;
+watchArr[1] = minutes;
+watchArr[0] = hours;
          
 let timerInterval = null;
 let timerStatus = 'stopped';
@@ -81,76 +91,43 @@ function countDown () {
         timerStatus = 'stopped';
     });
 
-    const string = watch.textContent;
-    watchArr = string.split(':');
-    const sec = watchArr[2];
-    const min = watchArr[1];
-    const hour = watchArr[0];
-    let timer = sec;
-    let position = null;
-    
+     up.addEventListener("click", ()=>{
+        if (minutes  < 59) {
+          minutes = minutes + 1;
+          seconds = seconds + 0;
+          if (minutes === 59) {
+            hours = hours + 1;
+            minutes = 0;
 
-
-
-   
-    function moveTimer () {
-      if (timer === sec) {
-        seconds + 5;
-        timer = min;
-      }
-      if (timer === min) {
-        minutes + 5;
-        timer = hour;
-      }
-      if (timer === hour) {
-        hours + 1;
-        timer = sec;
-      }
-
-    }
-
-    if (cursorPosition > 0) {
-          cursorPosition--;
+          }
         }
-
-    const words = textContent.split(':');
-    let cursorPosition = right.cursorPosition;
-
-    function moveToPreviousWord() {
-        if (cursorPosition > 0) {
-          cursorPosition--;
-        }
-      }
-      
-      function updateElementTextContent() {
-        right.textContent = words.join(' ');
-      }
-      
-      // Bind the moveToNextWord() and moveToPreviousWord() functions to the element's keydown event.
-      right.addEventListener('keydown', (event) => {
-        switch (event.key) {
-          case 'ArrowRight':
-            moveToNextWord();
-            break;
-          case 'ArrowLeft':
-            moveToPreviousWord();
-            break;
-        }
-      
-        // Update the element's text content.
-        updateElementTextContent();
-      });
-
-
-    up.addEventListener("click", ()=>{
-        return +1
     })
 
     down.addEventListener("click", ()=>{
-        return -1
-    })
+      if (seconds > 0) {
+        if (hours === 0 && minutes === 0) {
+          seconds = seconds - 1;
+          minutes = 0;
+          hours = 0;
+        }
+      }if (hours  === 0 && minutes > 0) {
+          hours = 0;
+          minutes = minutes - 1;
+      }if (hours > 0) {
+          hours = hours - 1;
+          minutes = minutes + 0;
+      }
+  })
+    
 
-    left.addEventListener("click", moveTimer)
-    console.log(sec)
+    document.addEventListener("mousemove", function(event) {
+      var x = event.type; // Get the horizontal coordinate of the cursor
+      var y = event.clientY; // Get the vertical coordinate of the cursor
+      
+      // Do something with the cursor position, for example, log the coordinates
+      // console.log("Cursor position - X: " + x + ", Y: " + y);
+    });
+
+    console.log(seconds)
     console.log(minutes)
     console.log(hours)
