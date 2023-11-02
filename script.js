@@ -33,6 +33,7 @@ function countDown () {
         seconds--;
         if (hours <= 0 && minutes <= 0 && seconds <= 0) {
             seconds = 0;
+            alert("Timer is DONE!!!")
         }
     }
 
