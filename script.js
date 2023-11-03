@@ -16,8 +16,6 @@ let evenSeconds = 0;
 let evenMinutes= 0;
 let evenHours = 0;
 
-watch.innerHTML = hours + ':' + minutes + ':' + seconds;
-
 
 const string = watch.textContent;
 watchArr = string.split(':');
@@ -33,7 +31,6 @@ function countDown () {
         seconds--;
         if (hours <= 0 && minutes <= 0 && seconds <= 0) {
             seconds = 0;
-            alert("Timer is DONE!!!")
         }
     }
 
@@ -46,7 +43,7 @@ function countDown () {
         }
         if (hours <= 0) {
             hours = 0;
-        }    
+        }
     } 
 
     if (seconds < 10) {
