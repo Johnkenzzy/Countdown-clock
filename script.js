@@ -115,8 +115,23 @@ function countDown () {
           hours = hours - 1;
           minutes = minutes + 0;
       }
-  })
-    
+    })
+
+    position = null;
+
+    right.addEventListener('click', ()=>{
+        position = seconds;
+        if (position === seconds) {
+            position = minutes;
+            if (position === minutes) {
+                position = hours;
+            }
+            if (position === hours) {
+                position = seconds;
+            }
+        }
+    })
+        
 
     document.addEventListener("mousemove", function(event) {
       var x = event.type; // Get the horizontal coordinate of the cursor
