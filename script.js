@@ -138,13 +138,11 @@ function countDown () {
       var y = event.clientY; // Get the vertical coordinate of the cursor
       
       // Do something with the cursor position, for example, log the coordinates
-      // console.log("Cursor position - X: " + x + ", Y: " + y);
+      console.log("Cursor position - X: " + x + ", Y: " + y);
     });
 
     console.log(seconds)
     console.log(minutes)
     console.log(hours)
-    console.log(seconds)
-    console.log(minutes)
-    console.log(hours)
+    
     
