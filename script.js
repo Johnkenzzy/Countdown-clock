@@ -7,6 +7,7 @@ const down = document.querySelector(".down");
 const left = document.querySelector(".left");
 const right = document.querySelector(".right");
 
+// Remember to define the problem i am trying to sove here is.
 
 let seconds = 0;
 let minutes = 0;
@@ -138,7 +139,7 @@ function countDown () {
       var y = event.clientY; // Get the vertical coordinate of the cursor
       
       // Do something with the cursor position, for example, log the coordinates
-      console.log("Cursor position - X: " + x + ", Y: " + y);
+    //   console.log("Cursor position - X: " + x + ", Y: " + y);
     });
 
     console.log(seconds)
