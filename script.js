@@ -134,14 +134,6 @@ function countDown () {
     })
         
 
-    document.addEventListener("mousemove", function(event) {
-      var x = event.type; // Get the horizontal coordinate of the cursor
-      var y = event.clientY; // Get the vertical coordinate of the cursor
-      
-      // Do something with the cursor position, for example, log the coordinates
-    //   console.log("Cursor position - X: " + x + ", Y: " + y);
-    });
-
     console.log(seconds)
     console.log(minutes)
     console.log(hours)
