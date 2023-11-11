@@ -132,12 +132,22 @@ function countDown () {
             }
         }
     })
+
+    
+    left.addEventListener('click', ()=>{
+        position = seconds;
+        if (position === seconds) {
+            position = minutes;
+            if (position === minutes) {
+                position = hours;
+            }
+            if (position === hours) {
+                position = seconds;
+            }
+        }
+    })
         
 
-    console.log(seconds)
-    console.log(minutes)
-    console.log(hours)
-    
     console.log(seconds)
     console.log(minutes)
     console.log(hours)
