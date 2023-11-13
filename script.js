@@ -154,4 +154,7 @@ function countDown () {
     console.log(seconds)
     console.log(minutes)
     console.log(hours)
+    console.log(seconds)
+    console.log(minutes)
+    console.log(hours)
     
