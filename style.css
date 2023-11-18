@@ -1,8 +1,8 @@
-*, body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background: #d4dfe4; 
+body {
+  display: flex;flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url(https://vivaldi.com/wp-content/uploads/The_Pomodoro_timer_in_Vivaldi_browser-980x551.png) no-repeat center center / cover;
 }
 
 #title, #frame {
@@ -10,13 +10,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 5px;
     font-size: 5ch;
-    color: #3e8f8f;
+    color: rgb(237, 240, 240);
 }
 
 #frame {
-    height: 50vh;
+    padding: 20px;
+    border: 2px solid #e00c68;
+    border-radius: 10px;
 }
 
 #btn {
@@ -58,4 +60,15 @@
     font-size: 3ch;
     color: #e00c68;
     border-radius: 5px;
+}
+
+.date {
+    background: #3e8f8f;
+    color: white;
+    font-weight: bolder;
+    padding: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 5px;
+    align-self: flex-end;
 }

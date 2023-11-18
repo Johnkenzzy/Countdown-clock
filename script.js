@@ -6,6 +6,7 @@ const up = document.querySelector(".up");
 const down = document.querySelector(".down");
 const left = document.querySelector(".left");
 const right = document.querySelector(".right");
+const date = document.querySelector(".date");
 
 // Remember to define the problem i am trying to sove here is.
 
@@ -146,6 +147,22 @@ function countDown () {
             }
         }
     })
+
+   /**  function updateTime() {
+        var time = (new Date()).toLocaleString({
+        hour12: true,
+        });
         
+        date.innerHTML = time;
+        
+    };**/
 
 
+    function time () {
+        date.innerHTML = new Date().toLocaleString({hour12: true,})  /**toString("hh:mm:ss tt")**/;
+                var timeout = setTimeout(time, 1000); // recalls the function after 1000 ms
+        };
+
+    requestAnimationFrame(time);
+
+        
