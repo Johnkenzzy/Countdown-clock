@@ -1,4 +1,5 @@
 const watch = document.getElementById("watch");
+const watch2 = document.getElementById("watch2");
 const play = document.getElementById("play");
 const pause = document.getElementById("pause");
 const reset = document.getElementById("reset");
@@ -160,6 +161,7 @@ function countDown () {
 
     function time () {
         date.innerHTML = new Date().toLocaleString({hour12: true,})  /**toString("hh:mm:ss tt")**/;
+        watch2.innerHTML = new Date().toLocaleString({hour12: true,})  /**toString("hh:mm:ss tt")**/;
                 var timeout = setTimeout(time, 1000); // recalls the function after 1000 ms
         };
 
