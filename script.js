@@ -1,4 +1,5 @@
 const watch = document.getElementById("watch");
+const watch1 = document.getElementById("watch1");
 const watch2 = document.getElementById("watch2");
 const play = document.getElementById("play");
 const pause = document.getElementById("pause");
@@ -66,6 +67,7 @@ function countDown () {
     }    
     
     watch.innerHTML = evenHours + ':' + evenMinutes + ':' + evenSeconds;
+    watch1.innerHTML = evenHours + ':' + evenMinutes + ':' + evenSeconds;
 }
 
     play.addEventListener('click', ()=>{
@@ -86,6 +88,7 @@ function countDown () {
 
         window.clearInterval(timerInterval);
         watch.innerHTML = '00:00:00';
+        watch1.innerHTML = '00:00:00';
         seconds = 0;
         minutes = 0;
         hours = 0;
