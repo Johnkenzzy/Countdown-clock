@@ -152,14 +152,14 @@ function countDown () {
         }
     })
 
-   /**  function updateTime() {
+     function updateTime() {
         var time = (new Date()).toLocaleString({
         hour12: true,
         });
         
         date.innerHTML = time;
         
-    };**/
+    };
 
 
     function time () {
