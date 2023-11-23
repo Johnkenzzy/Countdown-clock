@@ -26,8 +26,6 @@ watchArr = string.split(':');
 watchArr[2] = seconds;
 watchArr[1] = minutes;
 watchArr[0] = hours;
-
-console.log(watchArr)
          
 let timerInterval = null;
 let timerStatus = 'stopped';
