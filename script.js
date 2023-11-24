@@ -164,7 +164,6 @@ function countDown () {
 
     function time () {
         date.innerHTML = new Date().toLocaleString({hour12: true,})  /**toString("hh:mm:ss tt")**/;
-        watch2.innerHTML = new Date().toLocaleString({hour12: true,})  /**toString("hh:mm:ss tt")**/;
                 var timeout = setTimeout(time, 1000); // recalls the function after 1000 ms
         };
 
