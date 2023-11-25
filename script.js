@@ -19,7 +19,7 @@ let hours = 0;
 let evenSeconds = 0;
 let evenMinutes= 0;
 let evenHours = 0;
-
+console.log(seconds)
 
 const string = watch.textContent;
 watchArr = string.split(':');
