@@ -1,6 +1,5 @@
 const watch = document.getElementById("watch");
 const watch1 = document.getElementById("watch1");
-const watch2 = document.getElementById("watch2");
 const play = document.getElementById("play");
 const pause = document.getElementById("pause");
 const reset = document.getElementById("reset");
@@ -19,7 +18,6 @@ let hours = 0;
 let evenSeconds = 0;
 let evenMinutes= 0;
 let evenHours = 0;
-console.log(seconds)
 
 const string = watch.textContent;
 watchArr = string.split(':');
