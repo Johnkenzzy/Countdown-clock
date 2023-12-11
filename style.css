@@ -72,3 +72,12 @@ body {
     margin-top: 5px;
     align-self: flex-end;
 }
+
+.svg {
+    -webkit-text-size-adjust: 100%;
+    font-family: Netflix Sans,Helvetica Neue,Segoe UI,Roboto,Ubuntu,sans-serif;
+    box-sizing: border-box;
+    color: #f00;
+    border: 4px soilid #e00c68;
+    font-size: 5ch;
+}

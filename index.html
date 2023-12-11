@@ -7,7 +7,7 @@
         <script src="https://kit.fontawesome.com/e677117ef6.js" crossorigin="anonymous"></script>
         <title>countdown-watch</title>
     </head>
-    <body>
+    <body> 
         <p class="date"></p>
         <h2 id="title">Countdown Watch</h2>
         <div id="frame">
@@ -24,6 +24,20 @@
             <div class="down set"><i class="fa-solid fa-caret-up fa-rotate-180 icon"></i></div>
             <div class="right set"><i class="fa-solid fa-caret-up fa-rotate-90 icon"></i></div>
         </div>
+        <svg width="100" height="100">
+            <circle cx="50" cy="50" r="40" fill="red" />
+        </svg>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+        <img src="https://images.pexels.com/photos/757889/pexels-photo-757889.jpeg?auto=compress&cs=tinysrgb&w=600" id="animated-image">
+        <script>
+        gsap.to('#animated-image', {
+            duration: 2,
+            ease: "power2.inOut",
+            yoyo: true,
+            repeat: -1,
+            rotation: 360
+        });
+        </script>
         <script src="script.js"></script>
     </body>
 </html> 
